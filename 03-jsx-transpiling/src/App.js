@@ -41,21 +41,21 @@ import './App.css';
   ); */
 import FormularioLogin from "./components/Formularios/formularioLogin"
 import FormularioRegistro from "./components/Formularios/formularioRegistro"
-
-const estilos = {
-  
-}
-
+import { useState } from 'react';
 function App() {
-  let tipoFormulario = "registro"
-  let rojo = true
+  const [numero3, setNumero3] = useState(3)
+  console.log(numero3)
+  const [tipoFormulario , setTipoFormulario] = useState("login")
+  const [themeRed, setThemeRed] = useState(true)
   return (
     <div>
-      <h1 className={rojo ? "miTituloRojo" : "miTituloAzul"}>React App</h1>
-      
+      <h1 className={themeRed ? "miTituloRojo" : "miTituloAzul"}>React App</h1>
       {
-       (tipoFormulario === "login") ? <FormularioLogin/> : <FormularioRegistro/>
+       (tipoFormulario === "login") ? 
+       <FormularioLogin themeRed={themeRed} setThemeRed={setThemeRed} numeros={4} titulo="MI TITULO"/> : 
+       <FormularioRegistro/>
       }
+      <button onClick={() => setTipoFormulario("registro")}>Registrarme</button>
     </div>
   )
 }

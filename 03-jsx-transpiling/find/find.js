@@ -14,7 +14,7 @@ const condicion = (edad) => {
 } */
 
 //POLIFILL CREANDO PROPIEDAD DE ARRAYS
-const numeros = [ 1, 4, 7, 23, 8]
+/* const numeros = [ 1, 4, 7, 23, 8]
 
 Array.prototype.buscar = function(callback){
     for(let i = 0; i < this.length; i++){
@@ -26,4 +26,19 @@ Array.prototype.buscar = function(callback){
 
 const busqueda = numeros.buscar((numero) => numero < 20)
 
-console.log(busqueda)
+console.log(busqueda) */
+
+//pollifil de metodo map
+
+const numeros = [ 3, 4, 7, 23, 8]
+
+const nuevoArray = numeros.map((numero) => numero * 2 )
+
+console.log(nuevoArray) 
+
+for(let i = 0; i < nuevoArray.length; i++){
+    nuevoArray[i] += 2 
+}
+
+console.log(nuevoArray)
+
