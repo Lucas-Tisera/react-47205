@@ -1,7 +1,9 @@
 const Toast = ({ mensaje, isOpen=true, estado }) => {
     return (
-        <div className="toast" style={isOpen ? styles.toastOpen : styles.toastClose}>
-            <div className="toast__message" style={(estado === "error") ? styles.toastMessageError : styles.toastMessageSuccess}>{mensaje}</div>
+        <div style={isOpen ? styles.toastOpen : styles.toastClose}>
+            <div style={(estado === "error") ? styles.toastMessageError : styles.toastMessageSuccess}>
+                {mensaje}
+            </div>
         </div>
     );
 };
