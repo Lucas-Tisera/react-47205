@@ -1,0 +1,35 @@
+const Toast = ({ mensaje, isOpen=true, estado }) => {
+    return (
+        <div className="toast" style={isOpen ? styles.toastOpen : styles.toastClose}>
+            <div className="toast__message" style={(estado === "error") ? styles.toastMessageError : styles.toastMessageSuccess}>{mensaje}</div>
+        </div>
+    );
+};
+
+const styles = {
+    toastOpen: {
+        position: 'fixed',
+        bottom: '1rem',
+        right: '1rem',
+        background: 'black',
+        color: '#fff',
+        padding: '1rem',
+        borderRadius: '0.5rem',
+        zIndex: 1000,
+    },
+    toastClose: {
+        display: 'none',
+    },
+    toastMessageSuccess: {
+        fontSize: '1.5rem',
+        color: 'lightgreen',
+    },
+    toastMessageError: {
+        fontSize: '1.5rem',
+        color: 'red',
+    },
+};
+
+
+
+export default Toast;
