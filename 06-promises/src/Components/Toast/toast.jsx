@@ -1,16 +1,18 @@
-const Toast = ({ mensaje, isOpen=true, estado }) => {
+const Toast = ({ mensaje, isOpen, estado }) => {
     return (
-        <div style={isOpen ? styles.toastOpen : styles.toastClose}>
-            <div style={(estado === "error") ? styles.toastMessageError : styles.toastMessageSuccess}>
-                {mensaje}
+        <>
+            <div style={isOpen ? styles.toastOpen : styles.toastClose}>
+                <div style={(estado === "error") ? styles.toastMessageError : styles.toastMessageSuccess}>
+                    {mensaje}
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
 const styles = {
     toastOpen: {
-        position: 'fixed',
+        position: 'absolute',
         bottom: '1rem',
         right: '1rem',
         background: 'black',
