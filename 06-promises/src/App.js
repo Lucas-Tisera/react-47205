@@ -21,42 +21,33 @@ function App() {
   const [mensaje, setMensaje] = useState('Hola')
   const [estado, setEstado] = useState('')
   const [isOpen, setIsOpen] = useState(false)
-  const [posts, setPosts] = useState()
+  const [pokemon, setPokemon] = useState()
 
-  const getPosts = () => {
-      fetch("https://jsonplaceholder.typicode.com/posts")
+  const getPokemon = () => {
+      fetch("https://pokeapi.co/api/v2/pokemon?limit=10&offset=1")
       .then(response => response.json())
-      .then(data => {
-        setPosts(data)
-        setMensaje('Posts cargados')
-        setEstado('seccess')
-        setIsOpen(true)
-      })
-      .catch(error => {
-        setMensaje('Hubo un error con el servicio')
-        setEstado('error')
-        setIsOpen(true)
-      })
-      .finally(() => {
-        setTimeout(()=>{
-          setIsOpen(false)
-        }, 3000)
-      })
+      .then(data => setPokemon(data.results))
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      getPosts()
-    }, 3000)
+      getPokemon()
   }, [])
 
   return (
     <div className="App">
       <h1>Promises</h1>
       {
-        posts ?  <Listado posts={posts} /> : <h2>Cargando...</h2>
+        pokemon &&
+        pokemon.map((poke, index) => {
+          return(
+            <h2 key={index}> {poke.name} </h2>
+          )
+        })
       }
-      <Toast mensaje={mensaje} isOpen={isOpen} estado={estado} />
+      {/* {
+        posts ?  <Listado posts={posts} /> : <h2>Cargando...</h2>
+      } */}
+      {/* <Toast mensaje={mensaje} isOpen={isOpen} estado={estado} /> */}
     </div>
   );
 }
