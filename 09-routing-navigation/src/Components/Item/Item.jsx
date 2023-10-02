@@ -4,12 +4,12 @@ import { getItemById } from '../../Helpers/Items'
 
 const Item = () => {
     const { itemId } = useParams()
-    const product = getItemById(itemId)
+    /* const product = getItemById(itemId) */
     //EJEMPLO UTILIZANDO HOOK CON FETCH PARA TRAER LOS ITEMS
-    /*
-        const location = useLocation()
-        const product = location.state.item
-    */
+    
+    const location = useLocation()
+    const product = location.state.item
+   
 
     return (
         <>

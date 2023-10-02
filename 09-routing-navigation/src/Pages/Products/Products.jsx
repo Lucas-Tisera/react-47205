@@ -5,11 +5,10 @@ import { items } from '../../Helpers/Items'
 
 const Products = () => {
   //EJEMPLO UTILIZANDO HOOK CON FETCH PARA TRAER LOS ITEMS
-  /* 
+  
     const items = useItems()
     console.log(items)
-  */
-
+  
   return (
     //listado de productos
     <>
@@ -20,7 +19,7 @@ const Products = () => {
       items.map((item) => {
         return (
           <div key={item.id} style={{display:"flex", flexDirection:"row", justifyContent:"center"}}>
-            <Link /* state={{item: item}} */ to={`/products/${item.id}`}>{item.title}</Link>
+            <Link state={{item: item}} to={`/products/${item.id}`}>{item.title}</Link>
           </div>
         )
       })
