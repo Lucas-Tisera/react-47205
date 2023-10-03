@@ -1,26 +1,36 @@
-import React from 'react'
-import { useLocation, useParams } from 'react-router-dom'
-import { getItemById } from '../../Helpers/Items'
+import React, { useContext } from 'react'
+import { useLocation } from 'react-router-dom'
+import { CarritoContext } from '../../Context/CarritoContext'
+import Cart from '../../Pages/Cart/Cart'
+
 
 const Item = () => {
-    const { itemId } = useParams()
-    /* const product = getItemById(itemId) */
-    //EJEMPLO UTILIZANDO HOOK CON FETCH PARA TRAER LOS ITEMS
-    
     const location = useLocation()
     const product = location.state.item
-   
+    const { agregarProducto } = useContext(CarritoContext)
 
     return (
         <>
         <div style={{display:"flex", flexDirection:"row", justifyContent:"center"}}>
-            {/* <img src={product.url} alt={product.title} /> */}
             <div>
                 <h2>Item: <p>{product.title}</p></h2>
                 <h3>Id: {product.id}</h3>
+            <button style={{
+                backgroundColor: "rebeccapurple",
+                color: "white",
+                borderRadius: "5px",
+                padding: "10px",
+                cursor: "pointer",
+                border: "none",
+                margin: "10px"
+            }} 
+            onClick={() => agregarProducto(oldData => [...oldData, product])}>
+                Agregar al carro
+            </button>
             </div>
 
         </div>
+        <Cart />
         </>
     )
 }

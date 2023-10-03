@@ -11,9 +11,9 @@ const Navbar = () => {
             Navbar
         </h1>
         <div style={styles.Links}>
-            <NavLink activeClassName to={"/"} >Home</NavLink>
-            <NavLink activeClassName to={"/cart"} >Cart</NavLink>
-            <NavLink activeClassName to={"/products"} >Products</NavLink>
+            <NavLink className={"links"} activeClassName to={"/"} >Home</NavLink>
+            <NavLink className={"links"} activeClassName to={"/products"} >Products</NavLink>
+            <NavLink className={"links"} activeClassName to={"/cart"} >Cart</NavLink>
         </div>
     </div>
     )
@@ -34,8 +34,9 @@ const styles = {
     Links: {
         width: '30%',
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         alignItems: 'center',
+        textDecoration: "none"
     }
 }
 

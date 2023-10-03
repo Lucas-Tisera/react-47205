@@ -1,16 +1,12 @@
 .links{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    text-decoration: none;
 }
 
 .active{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    background-color: grey;
+    color: #fff;
+    background-color: #000;
+    border-radius: 5px;
+    font-size: large;
+    padding: 5px;
+    text-decoration: none;
 }

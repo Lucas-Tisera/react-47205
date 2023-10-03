@@ -1,21 +1,17 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { useItems } from '../../Hooks/useItems'
-import { items } from '../../Helpers/Items' 
+import Cart from '../Cart/Cart'
 
 const Products = () => {
-  //EJEMPLO UTILIZANDO HOOK CON FETCH PARA TRAER LOS ITEMS
-  
     const items = useItems()
-    console.log(items)
-  
   return (
-    //listado de productos
     <>
     <div style={{display:"flex", flexDirection:"row", justifyContent:"center"}}>
       <h2>Products</h2>
     </div>
     {
+      items.length > 0 ? 
       items.map((item) => {
         return (
           <div key={item.id} style={{display:"flex", flexDirection:"row", justifyContent:"center"}}>
@@ -23,7 +19,12 @@ const Products = () => {
           </div>
         )
       })
+      : 
+      <div style={{display:"flex", flexDirection:"row", justifyContent:"center"}}>
+        <h2>Cargando...</h2>
+      </div>
     }
+    
     </>
 
   )
