@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import { estilos } from '../App'
 
-export const InputKeys = () => {
+export const InputKeys = ({colorTema}) => {
     const [value, setValue] = useState('Hola')
     
     const handleKeyDown = (event) =>{
@@ -22,7 +23,7 @@ export const InputKeys = () => {
 
     return (
         <div style={styles.container}>
-            <input value={value} onChange={handleChange} type='text' style={styles.input} />
+            <input value={value} onChange={handleChange} type='text' style={colorTema === "oscuro" ? estilos.temaOscuro : estilos.temaClaro} />
         </div>
       )
     }

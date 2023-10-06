@@ -1,0 +1,20 @@
+/* ESTILOS RELACIONADOS AL TEMA DE LA APP */
+#Oscuro{
+  background-color: #282c34;
+  color: white;
+  font-weight: 700;
+}
+#Claro{
+  background-color: #f2f4f6;
+  color: #282c34;
+}
+
+/* ESTILOS GENERALES */
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
