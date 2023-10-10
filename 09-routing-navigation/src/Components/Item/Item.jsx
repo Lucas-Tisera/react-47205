@@ -1,14 +1,12 @@
 import React, { useContext } from 'react'
 import { useLocation } from 'react-router-dom'
 import { CarritoContext } from '../../Context/CarritoContext'
-import Cart from '../../Pages/Cart/Cart'
-
 
 const Item = () => {
     const location = useLocation()
     const product = location.state.item
     const { agregarProducto } = useContext(CarritoContext)
-
+    
     return (
         <>
         <div style={{display:"flex", flexDirection:"row", justifyContent:"center"}}>
@@ -30,7 +28,6 @@ const Item = () => {
             </div>
 
         </div>
-        <Cart />
         </>
     )
 }
