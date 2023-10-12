@@ -11,7 +11,7 @@ const Item = () => {
         <>
         <div style={{display:"flex", flexDirection:"row", justifyContent:"center"}}>
             <div>
-                <h2>Item: <p>{product.title}</p></h2>
+                <h2>Item: <p>{product.titulo}</p></h2>
                 <h3>Id: {product.id}</h3>
             <button style={{
                 backgroundColor: "rebeccapurple",

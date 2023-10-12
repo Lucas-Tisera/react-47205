@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useItems } from '../../Hooks/useItems'
-import { collection, doc, getDoc, getDocs, getFirestore, limit, query, where } from 'firebase/firestore'
+import { addDoc, collection, doc, getDoc, getDocs, getFirestore, limit, query, updateDoc, where, writeBatch } from 'firebase/firestore'
 
 const Products = () => {
   const [items, setItems] = useState([])
@@ -13,30 +13,30 @@ const Products = () => {
   
   useEffect(() => {
     const db = getFirestore();
-    const myquery = query(collection(db, "items"), where("categoria", "==", "ropa"))
+    const myquery = query(collection(db, "items"))
     getDocs(myquery).then(res =>
       setItems(res.docs.map((doc) => ({ id: doc.id, ...doc.data() }))))
   }, [])
-  console.log(items)
+  
   return (
     <>
     <div style={{display:"flex", flexDirection:"row", justifyContent:"center"}}>
       <h2>Products</h2>
     </div>
+    <div style={{display: "flex"}}>
     {
       items.length > 0 ? 
       items.map((item) => {
         return (
-          <div key={item.id} style={{display:"flex", flexDirection:"row", justifyContent:"center"}}>
-            {<Link state={{item: item}} to={`/products/${item.id}`}>{item.titulo}</Link>}
-          </div>
-        )
-      })
-      : 
-      <div style={{display:"flex", flexDirection:"row", justifyContent:"center"}}>
+          <Link style={styles.Productos} key={item.id} state={{item: item}} to={`/products/${item.id}`}>{item.titulo}</Link>
+          )
+        })
+        : 
+        <div style={{display:"flex", flexDirection:"row", justifyContent:"center"}}>
         <h2>Cargando...</h2>
       </div>
     }
+    </div>
     
     </>
 
@@ -44,3 +44,22 @@ const Products = () => {
 }
 
 export default Products
+
+const styles = {
+  Productos: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "50px",
+    width: "80%",
+    borderRadius: "10px",
+    border: "1px solid black",
+    margin: "5px",
+    padding: "5px",
+    cursor: "pointer",
+    color : "white",
+    textDecoration: "none",
+    backgroundColor: "rebeccaPurple",
+  }
+}
