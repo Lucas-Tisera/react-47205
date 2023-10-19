@@ -13,7 +13,7 @@ const Products = () => {
   
   useEffect(() => {
     const db = getFirestore();
-    const myquery = query(collection(db, "items"))
+    const myquery = query(collection(db, "items"))  
     getDocs(myquery).then(res =>
       setItems(res.docs.map((doc) => ({ id: doc.id, ...doc.data() }))))
   }, [])
