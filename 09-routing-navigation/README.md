@@ -12,7 +12,7 @@ Una vez de realizada la compra le devuelve al usuario su numero de orden para ha
 Durante el proceso de estructuración, decidí mantener el listado de productos separado de los archivos principales
 moviendolo a un componente, esto con el fin de poder reutilizarlo si fuera necesario.
 
-##Para levantar el proyecto:
+## Para levantar el proyecto:
 
 Ejecutar comandos
 
